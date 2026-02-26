@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# PyTorch / ML Models
+*.ckpt
+*.pt
+*.pth
+*.pkl
+*.h5
+*.hdf5
+checkpoints/
+models/
+saved_models/
+wandb/
+
+# Data
+*.nii.gz
+*.nii
+data/
+datasets/
+*.csv
+!**/requirements.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+*.out
+
+# Results (uncomment if you don't want to track results)
+# results/
+# linear_probe_results/
+# sae_statistical_analysis/
+
+# Screen sessions
+*.screen
+screenlog.*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Large files (adjust as needed)
+*.zip
+*.tar.gz
+
