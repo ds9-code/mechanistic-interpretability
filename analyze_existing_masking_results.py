@@ -11,7 +11,7 @@ def analyze_masking_results(results_file, baseline_mae=None):
     """Analyze masking results to identify true noise"""
     
     if not os.path.exists(results_file):
-        print(f"❌ File not found: {results_file}")
+        print(f"File not found: {results_file}")
         return None
     
     with open(results_file) as f:
@@ -26,7 +26,7 @@ def analyze_masking_results(results_file, baseline_mae=None):
         elif 'baseline_mae' in data:
             baseline_mae = data['baseline_mae']
         else:
-            print("⚠️  Could not find baseline MAE, using 71.615")
+            print("Could not find baseline MAE, using 71.615")
             baseline_mae = 71.615
     
     true_noise = []
