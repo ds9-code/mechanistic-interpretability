@@ -1,6 +1,6 @@
 # Mechanistic Interpretability for Brain Age Prediction
 
-**Interpretable brain age from sparse autoencoder features—decompose a pretrained MRI encoder, probe for age, intervene on a small set of features to match true age, and validate with saliency maps.**
+**Interpretable brain age from sparse autoencoder features - decompose a pretrained MRI encoder, probe for age, intervene on a small set of features to match true age, and validate with saliency maps.**
 
 ---
 
@@ -21,7 +21,7 @@
 3. **Identify** a small set of SAE features that are “meaningful” for age (vs “noise” that hurts performance when present).
 4. **Intervene** on those features so that, for any given scan, the predicted age equals the true age (ground truth). This shows that the same pipeline can produce the correct answer when we override a few dimensions.
 5. **Validate with saliency:** Compute gradient-based saliency maps (where in the image the prediction is sensitive) before and after intervention on OASIS data, and visualize them (contours and heatmaps) to see whether the model’s focus aligns with brain anatomy.
-6. **AI safety and interpretability in healthcare:** Apply interpretability techniques (sparse features, linear probes, targeted intervention, saliency) to move from black-box brain-age models to explainable ones—so we can say *which* internal features and *where* in the image drive the prediction. In applied healthcare, interpretable models support clinical trust, accountability, and safer deployment; reducing reliance on opaque black-box predictions is important for responsible use of AI in medical imaging.
+6. **AI safety and interpretability in healthcare:** Apply interpretability techniques (sparse features, linear probes, targeted intervention, saliency) to move from black-box brain-age models to explainable ones - so we can say *which* internal features and *where* in the image drive the prediction. In applied healthcare, interpretable models support clinical trust, accountability, and safer deployment; reducing reliance on opaque black-box predictions is important for responsible use of AI in medical imaging.
 
 ---
 
@@ -58,9 +58,9 @@ All imaging is 3D T1-weighted MRI; ages are in months.
 This repository enables:
 
 * **SAE decomposition** of the pretrained brain MRI encoder (CLS) features into a high-dimensional sparse latent (e.g. ~49k dimensions), with an MLP-grounded SAE that can be trained with reconstruction and optional age-preservation loss.
-* **Linear age probe** trained on **SAE-decoded** 768-d features (not raw CLS), so age is predicted from the reconstructed representation.
-* **Feature analysis** (activation statistics, consistency across images, noise vs meaningful via **masking experiments**).
-* **Targeted intervention** on a small set of SAE features so that predicted age = true age (minimum-norm solution), with **differentiable** intervention for gradient-based saliency.
+* **Linear age probe** trained on SAE-decoded 768-d features (not raw CLS), so age is predicted from the reconstructed representation.
+* **Feature analysis** (activation statistics, consistency across images, noise vs meaningful via masking experiments).
+* **Targeted intervention** on a small set of SAE features so that predicted age = true age (minimum-norm solution), with differentiable intervention for gradient-based saliency.
 * **Saliency validation** on OASIS: gradient saliency (∂pred/∂image) before and after intervention, with BrainIAC-style visualization (Gaussian blur, magma colormap, contour and heatmap overlays).
 
 ---
@@ -83,7 +83,7 @@ This repository enables:
 |------|----------------|
 | **1. Encoder** | 3D MRI → pretrained SimCLR ViT → 768-d CLS token. |
 | **2. SAE** | CLS → SAE encoder → sparse latent **z** (e.g. 49,152 dims) → SAE decoder → 768-d reconstructed features. |
-| **3. Probe** | Reconstructed 768-d → linear layer → scalar **age (months)**. |
+| **3. Probe** | Reconstructed 768-d → linear layer → scalar age (months). |
 | **4. Feature selection** | Offline: statistics + masking to choose a small set of feature indices (e.g. 9607, 8700, 23673). |
 | **5. Intervention** | For a given scan and true age: set chosen z indices so predicted age = true age (minimum-norm formula). |
 | **6. Saliency** | Compute ∂(pred)/∂(image) for baseline and for adjusted prediction (with differentiable intervention); visualize on OASIS. |
@@ -113,22 +113,22 @@ Before we can “set a few features to match true age,” we need to decide *whi
 ### Statistical analysis
 
 * **Scripts:** e.g. `sae_statistical_analysis/generate_statistical_analysis.py`, plus any that consume test set activations.
-* **Outputs:** Per-feature statistics (activation rate, mean/max activation, variance), which images activate which features (`feature_to_images.json`), and lists of **consistent** or **noise** features (`consistent_features.json`, `noise_features.json`).
+* **Outputs:** Per-feature statistics (activation rate, mean/max activation, variance), which images activate which features (`feature_to_images.json`), and lists of consistent or noise features (`consistent_features.json`, `noise_features.json`).
 
 ### Noise vs meaningful (masking)
 
-* **Idea:** For each candidate feature, **mask** it (set to 0) at test time and measure the change in age prediction MAE.
-* **Interpretation:** If MAE **improves** when the feature is masked → the feature is treated as **noise** (it was hurting accuracy). If MAE **worsens** → the feature is **meaningful** (it was helping).
-* **Usage:** Results (e.g. `true_noise_features_identified.json`, masking experiment JSONs) are used to pick a small set of **meaningful** features for intervention (e.g. 9607, 8700, 23673).
+* **Idea:** For each candidate feature, mask it (set to 0) at test time and measure the change in age prediction mean absolute error (MAE).
+* **Interpretation:** If MAE improves when the feature is masked → the feature is treated as noise (it was hurting accuracy). If MAE worsens → the feature is meaningful (it was helping).
+* **Usage:** Results (e.g. `true_noise_features_identified.json`, masking experiment JSONs) are used to pick a small set of meaningful features for intervention (e.g. 9607, 8700, 23673).
 
 ---
 
 ## Linear Probe
 
 * **Input:** SAE-decoded 768-d vector (same dimensionality as the encoder CLS).
-* **Target:** Brain age in **months** (regression).
+* **Target:** Brain age in months (regression).
 * **Training:** Standard linear regression (e.g. `BrainIAC/src/train_linear_probe.py`) on pre-extracted features from train/val CSVs. No gradient through the encoder or SAE during probe training.
-* **Evaluation:** Baseline MAE (no intervention); after intervention, prediction is forced to true age by design, so the “accuracy” of the adjusted prediction is not the main metric—saliency and interpretability are.
+* **Evaluation:** Baseline MAE (no intervention); after intervention, prediction is forced to true age by design, so the “accuracy” of the adjusted prediction is not the main metric-saliency and interpretability are.
 
 ---
 
@@ -157,8 +157,8 @@ We want predicted age to equal true age by changing only a small set of SAE late
 * Loads a few OASIS 3D volumes (e.g. 5) and their age labels.
 * For each volume:
   * **Baseline:** Forward pass with no intervention → compute gradient saliency \( \partial(\text{pred})/\partial(\text{image}) \), patch-averaged and (optionally) brain-masked.
-  * **Adjusted:** Compute intervention so predicted age = true age; run forward with **differentiable** intervention → compute gradient saliency for the adjusted prediction.
-* **Visualization:** Saliency is Gaussian-blurred, max-normalized, and displayed with the **magma** colormap (BrainIAC quickstart style). Contour overlays and heatmap overlays are both saved.
+  * **Adjusted:** Compute intervention so predicted age = true age; run forward with differentiable intervention → compute gradient saliency for the adjusted prediction.
+* **Visualization:** Saliency is Gaussian-blurred, max-normalized, and displayed with the magma colormap (BrainIAC quickstart). Contour overlays and heatmap overlays are both saved.
 
 ### Outputs per run
 
