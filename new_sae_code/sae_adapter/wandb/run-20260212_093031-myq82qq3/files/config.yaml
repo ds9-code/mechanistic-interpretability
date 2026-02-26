@@ -1,0 +1,114 @@
+_wandb:
+    value:
+        cli_version: 0.19.6
+        m: []
+        python_version: 3.9.21
+        t:
+            "1":
+                - 1
+                - 5
+                - 9
+                - 11
+                - 41
+                - 48
+                - 49
+                - 53
+                - 55
+                - 63
+                - 103
+            "2":
+                - 1
+                - 5
+                - 9
+                - 11
+                - 41
+                - 48
+                - 49
+                - 53
+                - 55
+                - 63
+                - 103
+            "3":
+                - 13
+                - 23
+                - 55
+            "4": 3.9.21
+            "5": 0.19.6
+            "6": 4.56.1
+            "8":
+                - 5
+            "12": 0.19.6
+            "13": linux-x86_64
+backbone:
+    value:
+        checkpoint: /media/data/divyanshu/sophont/checkpoints/brainiac_traincsv_simclr_norm_vit_cls_vitb_tejas_lr0005_best-model-epoch=11-train_loss=0.00.ckpt
+        hidden_size: 768
+        img_size:
+            - 96
+            - 96
+            - 96
+        in_channels: 1
+        mlp_dim: 3072
+        num_heads: 12
+        num_layers: 12
+        patch_size:
+            - 16
+            - 16
+            - 16
+data:
+    value:
+        batch_size: 64
+        csv_file: /media/data/divyanshu/sophont/csvs/brainiac_train.csv
+        dataset_type: idh
+        embedding_csv: /media/data/divyanshu/sophont/features_val/brainiac_traincsv_simclr_norm_vit_cls_vitb_cls_precompute_embeddings.csv
+        embedding_device: cuda:0
+        embedding_label_col: label
+        embedding_model: simclr
+        embedding_npy: ""
+        embedding_source_csv: /media/data/divyanshu/sophont/csvs/brainiac_train.csv
+        num_workers: 4
+        root_dir: /media/data/divyanshu/foundation_model/brainiac_data
+        size:
+            - 96
+            - 96
+            - 96
+        use_embeddings: true
+inference:
+    value:
+        embedding_csv: /media/data/divyanshu/sophont/linear_probe/idh_csvs/idh_flair_simclr_TEST_precompute_embeddings.csv
+        out_dir: /media/data/divyanshu/sophont/linear_probe/idh_csvs
+        sae_checkpoint: /media/data/divyanshu/sophont/checkpoints/WORKS_sae_adapter_topk_precomputedembeddings_mlpgrounded_lamdasim01_lamdanchor1_tejas-epoch=13-train_loss=0.0016.ckpt
+        sae_file: idh_flair_saeadapter_epoch13_mlpgrounded_TEST_precompute_embeddings.csv
+        simclr_checkpoint: /media/data/divyanshu/sophont/checkpoints/brainiac_traincsv_simclr_norm_vit_cls_vitb_tejas_lr0005_best-model-epoch=11-train_loss=0.00.ckpt
+        simclr_file: brainiac_traincsv_simclr_norm_vit_cls_vitb_tejas_simclr_cls.csv
+        val_csv: /media/data/divyanshu/sophont/csvs/brainiac_val.csv
+logger:
+    value:
+        project: brainiac_sae
+        run_name: sae_adapter_top32_latent49152_precomputedembeddings_vaniallasae_lr0003
+        save_dir: /media/data/divyanshu/sophont/checkpoints
+        save_name: sae_adapter_top32_latent49152_precomputedembeddings_vaniallasae_lr0003_tejas-{epoch:02d}-{train_loss:.4f}
+model:
+    value:
+        adapter_type: mlp_grounded
+        beta_wz: 0
+        l1_weight: 3e-05
+        lambda_anchor: 1
+        lambda_sim: 0.01
+        latent_dim: 49152
+        leaky_relu_slope: 0.01
+        mlp_activation: leaky_relu
+        mlp_hidden_dim: 6144
+        mlp_init_scale: 1
+        sparsity_type: topk
+        topk: 32
+optim:
+    value:
+        lr: 0.0003
+        weight_decay: 0.0001
+trainer:
+    value:
+        devices:
+            - 0
+        max_epochs: 50
+        precision: 16-mixed

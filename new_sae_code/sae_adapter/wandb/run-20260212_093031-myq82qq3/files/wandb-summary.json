@@ -1,0 +1,1 @@
+{"_timestamp":1.7709071192080307e+09,"epoch":49,"trainer/global_step":20049,"latents_used_frac_batch":0.00225830078125,"train_loss":0.0007447003154084086,"_step":400,"_wandb":{"runtime":491},"z_active_abs_mean":1.4708435535430908,"rec_loss":0.0007447003154084086,"z_nnz_frac":0.0006510416860692203,"_runtime":487.250561224}

@@ -1,0 +1,24 @@
+/home/diya/miniforge3/lib/python3.12/site-packages/torch/__init__.py:1617: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+  _C._set_float32_matmul_precision(precision)
+Using 16bit Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/home/diya/miniforge3/lib/python3.12/site-packages/pytorch_lightning/loggers/wandb.py:397: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/diya/miniforge3/lib/python3.12/site-packages/pytorch_lightning/utilities/model_summary/model_summary.py:231: Precision 16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.
+
+  | Name    | Type   | Params | Mode
+-------------------------------------------
+0 | encoder | Linear | 37.8 M | train
+1 | decoder | Linear | 37.7 M | train
+-------------------------------------------
+75.5 M    Trainable params
+0         Non-trainable params
+75.5 M    Total params
+302.190   Total estimated model params size (MB)
+2         Modules in train mode
+0         Modules in eval mode
+/home/diya/miniforge3/lib/python3.12/site-packages/pytorch_lightning/loops/fit_loop.py:310: The number of training batches (48) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+Epoch 49: 100%|██████████| 48/48 [00:14<00:00,  3.37it/s, v_num=l2hf, train_loss=0.00197, rec_loss=0.00197]
+`Trainer.fit` stopped: `max_epochs=50` reached.

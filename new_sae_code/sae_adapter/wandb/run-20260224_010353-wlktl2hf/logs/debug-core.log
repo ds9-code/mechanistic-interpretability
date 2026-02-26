@@ -1,0 +1,15 @@
+{"time":"2026-02-24T01:03:53.216664485-05:00","level":"INFO","msg":"main: starting server","port-filename":"/tmp/tmpi18l7f6l/port-572953.txt","pid":572953,"log-level":0,"disable-analytics":false,"shutdown-on-parent-exit":false,"enable-dcgm-profiling":false}
+{"time":"2026-02-24T01:03:53.217112356-05:00","level":"INFO","msg":"server: will exit if parent process dies","ppid":572953}
+{"time":"2026-02-24T01:03:53.217102775-05:00","level":"INFO","msg":"server: accepting connections","addr":{"Name":"/tmp/wandb-572953-573064-3248211788/socket","Net":"unix"}}
+{"time":"2026-02-24T01:03:53.408025918-05:00","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"1(@)"}
+{"time":"2026-02-24T01:03:53.411597404-05:00","level":"INFO","msg":"handleInformInit: received","streamId":"wlktl2hf","id":"1(@)"}
+{"time":"2026-02-24T01:03:53.639215934-05:00","level":"INFO","msg":"handleInformInit: stream started","streamId":"wlktl2hf","id":"1(@)"}
+{"time":"2026-02-24T01:22:30.134857488-05:00","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"1(@)"}
+{"time":"2026-02-24T01:22:30.13491249-05:00","level":"INFO","msg":"connection: closing","id":"1(@)"}
+{"time":"2026-02-24T01:22:30.134951551-05:00","level":"INFO","msg":"server is shutting down"}
+{"time":"2026-02-24T01:22:30.134966901-05:00","level":"INFO","msg":"connection: closed successfully","id":"1(@)"}
+{"time":"2026-02-24T01:22:30.14038558-05:00","level":"INFO","msg":"server: listener closed","addr":{"Name":"/tmp/wandb-572953-573064-3248211788/socket","Net":"unix"}}
+{"time":"2026-02-24T01:22:48.29337855-05:00","level":"ERROR","msg":"processOutgoingData: flush error","error":"write unix /tmp/wandb-572953-573064-3248211788/socket->@: use of closed network connection","id":"1(@)"}
+{"time":"2026-02-24T01:30:31.622225659-05:00","level":"INFO","msg":"handleInformTeardown: server shutdown complete","id":"1(@)"}
+{"time":"2026-02-24T01:30:31.622303391-05:00","level":"INFO","msg":"connection: ManageConnectionData: connection closed","id":"1(@)"}
+{"time":"2026-02-24T01:30:31.622320311-05:00","level":"INFO","msg":"server is closed"}

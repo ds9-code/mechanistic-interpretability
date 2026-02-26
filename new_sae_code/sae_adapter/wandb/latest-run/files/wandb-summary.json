@@ -1,0 +1,1 @@
+{"_runtime":1116,"latents_used_frac_batch":0.001953125,"z_nnz_frac":0.0013020833721384406,"epoch":49,"_timestamp":1.7719140505778015e+09,"_wandb":{"runtime":1116},"trainer/global_step":2399,"train_loss":0.0019661413971334696,"z_active_abs_mean":3.3341259956359863,"rec_loss":0.0019661413971334696,"_step":47}

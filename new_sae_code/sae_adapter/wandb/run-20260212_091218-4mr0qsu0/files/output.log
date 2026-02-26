@@ -1,0 +1,21 @@
+Using 16bit Automatic Mixed Precision (AMP)
+`torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+Checkpoint directory /media/data/divyanshu/sophont/checkpoints exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type   | Params | Mode
+-------------------------------------------
+0 | encoder | Linear | 37.8 M | train
+1 | decoder | Linear | 37.7 M | train
+-------------------------------------------
+75.5 M    Trainable params
+0         Non-trainable params
+75.5 M    Total params
+302.190   Total estimated model params size (MB)
+The number of training batches (5) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+Epoch 8: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:00<00:00, 40.68it/s, v_num=qsu0]                            
+Detected KeyboardInterrupt, attempting graceful shutdown...

@@ -1,0 +1,15 @@
+{"time":"2026-02-12T09:30:32.012895589-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/media/data/divyanshu/sophont/sae_adapter/wandb/run-20260212_093031-myq82qq3/logs/debug-core.log"}
+{"time":"2026-02-12T09:30:32.118425243-05:00","level":"INFO","msg":"created new stream","id":"myq82qq3"}
+{"time":"2026-02-12T09:30:32.118458194-05:00","level":"INFO","msg":"stream: started","id":"myq82qq3"}
+{"time":"2026-02-12T09:30:32.118509115-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"myq82qq3"}
+{"time":"2026-02-12T09:30:32.118543176-05:00","level":"INFO","msg":"sender: started","stream_id":"myq82qq3"}
+{"time":"2026-02-12T09:30:32.118585817-05:00","level":"INFO","msg":"handler: started","stream_id":"myq82qq3"}
+{"time":"2026-02-12T09:30:32.570343736-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2026-02-12T09:38:43.869913628-05:00","level":"INFO","msg":"stream: closing","id":"myq82qq3"}
+{"time":"2026-02-12T09:38:43.869952138-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2026-02-12T09:38:43.87044451-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2026-02-12T09:38:44.244558742-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-02-12T09:38:44.448326242-05:00","level":"INFO","msg":"handler: closed","stream_id":"myq82qq3"}
+{"time":"2026-02-12T09:38:44.448359732-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"myq82qq3"}
+{"time":"2026-02-12T09:38:44.448376923-05:00","level":"INFO","msg":"sender: closed","stream_id":"myq82qq3"}
+{"time":"2026-02-12T09:38:44.448451805-05:00","level":"INFO","msg":"stream: closed","id":"myq82qq3"}

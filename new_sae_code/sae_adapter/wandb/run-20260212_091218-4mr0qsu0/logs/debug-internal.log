@@ -1,0 +1,15 @@
+{"time":"2026-02-12T09:12:18.869311684-05:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/media/data/divyanshu/sophont/sae_adapter/wandb/run-20260212_091218-4mr0qsu0/logs/debug-core.log"}
+{"time":"2026-02-12T09:12:18.974996058-05:00","level":"INFO","msg":"created new stream","id":"4mr0qsu0"}
+{"time":"2026-02-12T09:12:18.975026098-05:00","level":"INFO","msg":"stream: started","id":"4mr0qsu0"}
+{"time":"2026-02-12T09:12:18.975070479-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"4mr0qsu0"}
+{"time":"2026-02-12T09:12:18.97508416-05:00","level":"INFO","msg":"sender: started","stream_id":"4mr0qsu0"}
+{"time":"2026-02-12T09:12:18.975150731-05:00","level":"INFO","msg":"handler: started","stream_id":"4mr0qsu0"}
+{"time":"2026-02-12T09:12:19.286442205-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2026-02-12T09:13:30.832123246-05:00","level":"INFO","msg":"stream: closing","id":"4mr0qsu0"}
+{"time":"2026-02-12T09:13:30.832156607-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2026-02-12T09:13:30.832650458-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2026-02-12T09:13:35.762099771-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-02-12T09:13:35.931454221-05:00","level":"INFO","msg":"handler: closed","stream_id":"4mr0qsu0"}
+{"time":"2026-02-12T09:13:35.931479102-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"4mr0qsu0"}
+{"time":"2026-02-12T09:13:35.931501892-05:00","level":"INFO","msg":"sender: closed","stream_id":"4mr0qsu0"}
+{"time":"2026-02-12T09:13:35.931566594-05:00","level":"INFO","msg":"stream: closed","id":"4mr0qsu0"}
