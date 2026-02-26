@@ -138,11 +138,29 @@ We want predicted age to equal true age by changing only a small set of SAE late
 
 **Notation:** Let$\mathcal{F}$be the set of feature indices (e.g. {9607, 8700, 23673}). Let$\hat{y}$be the predicted age and$y_{\text{true}}$the ground truth.
 
-**Steps:**
+### Steps
 
-1. **Prediction at zero:** Run the forward pass with$z_i = 0$for all$i \in \mathcal{F}$. Call this prediction$\hat{y}_0$.
-2. **Slopes:** For each$i \in \mathcal{F}$, run forward with$z_i = 1$and$z_j = 0$for$j \neq i$. Define slope$s_i = \hat{y}_i - \hat{y}_0$.
-3. **Minimum-norm adjustment:** We want$\hat{y}_0 + \sum_{i \in \mathcal{F}} s_i v_i = y_{\text{true}}$. Set$\Delta = y_{\text{true}} - \hat{y}_0$and$v_i = \Delta \cdot s_i / \sum_j s_j^2$. Then replacing$z_i$with$v_i$gives predicted age = true age with smallest$\ell^2$change in those dimensions.
+1. **Prediction at zero:**  
+   Run the forward pass with zᵢ = 0 for all i in F.  
+   Call this prediction ŷ₀.
+
+2. **Slopes:**  
+   For each i in F, run forward with zᵢ = 1 and zⱼ = 0 for j ≠ i.  
+   Define slope sᵢ = ŷᵢ − ŷ₀.
+
+3. **Minimum-norm adjustment:**  
+
+   We want:
+
+   ŷ₀ + ∑ (sᵢ · vᵢ) = y_true
+
+   Set:
+
+   Δ = y_true − ŷ₀
+
+   vᵢ = (Δ · sᵢ) / ∑ sⱼ²
+
+   Replacing zᵢ with vᵢ gives predicted age = true age with the smallest ℓ² change in those dimensions.
 
 **Differentiable version:** The same formula is implemented with tensors (no `torch.no_grad()` on the intervention computation) so that when we backprop through the “adjusted” prediction, gradient flows through the$v_i$back to the image. That way the “after” saliency map reflects sensitivity to the image *including* through the intervention.
 
@@ -156,7 +174,7 @@ We want predicted age to equal true age by changing only a small set of SAE late
 
 * Loads a few OASIS 3D volumes (e.g. 5) and their age labels.
 * For each volume:
-  * **Baseline:** Forward pass with no intervention → compute gradient saliency \( \partial(\text{pred})/\partial(\text{image}) \), patch-averaged and (optionally) brain-masked.
+  * **Baseline:** Forward pass with no intervention → compute gradient saliency (d(ŷ) / d(image)), patch-averaged and (optionally) brain-masked.
   * **Adjusted:** Compute intervention so predicted age = true age; run forward with differentiable intervention → compute gradient saliency for the adjusted prediction.
 * **Visualization:** Saliency is Gaussian-blurred, max-normalized, and displayed with the magma colormap (BrainIAC quickstart). Contour overlays and heatmap overlays are both saved.
 
