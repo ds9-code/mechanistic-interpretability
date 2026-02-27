@@ -1,6 +1,6 @@
 # Mechanistic Interpretability for Brain Age Prediction
 
-**Interpretable brain age from sparse autoencoder features - decompose a pretrained MRI encoder, probe for age, intervene on a small set of features to match true age, and validate with saliency maps.**
+**Summary: Brain age prediction uses MRI to estimate how old a brain looks compared to a person’s real age. That number acts as a biomarker of brain health: brains that look older than expected can signal accelerated aging or higher risk for age-related disease, and researchers use it to study development, disease, and lifestyle. Models often predict brain age as a single number without explaining how they reach it. This project makes those models more interpretable: it breaks the model into understandable parts, shows which internal features drive the age prediction, intervenes on those features to correct wrong predictions, and visualizes which brain regions the model focuses on before and after correction. In healthcare, this kind of transparency matters: clinicians and patients need to understand how AI reaches its conclusions, and regulators need ways to hold AI accountable. More interpretable brain age models help detect bias, debug errors, and build trust, which is important for safely using AI in medical imaging.**
 
 ---
 
