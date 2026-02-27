@@ -247,4 +247,4 @@ Default intervention features are 9607, 8700, 23673. Override with `--feature_id
 | `sae_statistical_analysis/` | Scripts and JSONs for feature statistics, consistent/noise features. |
 | `linear_probe_results_new_sae_age/` | Linear probe weights and **saliency OASIS outputs** (contour and heatmap PNGs, NIfTIs, CSV). |
 | `new_sae_checkpoints_brainage/` | SAE checkpoints (reconstruction and optional age-preservation training). |
-| `figures/` | **Result figures for the repo:** copy key saliency PNGs or plots here and reference them from the README or [Results](#results-example-figures) so GitHub renders them. |
+| `figures/` | **Result figures for the repo** |
